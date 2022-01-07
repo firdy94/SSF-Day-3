@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Result</title>
+  </head>
+  <body th:object="${contact}">
+    <h1>Here's your contact information</h1>
+    <p>Name: <span th:text="${contact.name}">..</span></p>
+    <br />
+    <p>Email: <span th:text="${contact.email}">..</span></p>
+    <br />
+    <p>Phone number: <span th:text="${contact.phone_num}">..</span></p>
+    <br />
+  </body>
+</html>
