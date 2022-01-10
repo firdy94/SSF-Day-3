@@ -11,13 +11,10 @@ public class Contact implements Serializable {
 	private String email;
 	private String phone_num;
 
-	private final String hexID;
+	private String hexID;
 
 	public Contact() {
-		SecureRandom random = new SecureRandom();
-		int num = random.nextInt(0x1000000);
-		String formattedHex = String.format("%08x", num);
-		this.hexID = formattedHex;
+		this.hexID = formattedHex();
 	}
 
 	public String getName() {
@@ -46,6 +43,18 @@ public class Contact implements Serializable {
 
 	public String getHexID() {
 		return this.hexID;
+	}
+
+	public void setHexID(String id) {
+		this.hexID = id;
+	}
+
+	private synchronized String formattedHex() {
+		SecureRandom random = new SecureRandom();
+		int num = random.nextInt(0x1000000);
+		String formattedHexID = String.format("%08x", num);
+		return formattedHexID;
+
 	}
 
 }
